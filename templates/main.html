@@ -74,6 +74,12 @@ form {
     </form>
 
 <br>
+<div class="container-fluid" style="font-family: sans-serif;">
+    <div class="content" style ="text-align: center;">
+        <h2 class="center padding-64" style = "font-size: 20px;"><span class="tag"><strong>Result Interpretation:</strong></span></h2>
+        <p style = "font-size: 20px;">0 for <strong>Benign</strong>, 1 for <strong>Malignant</strong></p>
+</div>
+<br>  
 <div class="result" align="center">
     {% if result %}
         {% for variable, value in original_input.items() %}
@@ -84,7 +90,7 @@ form {
            <p style="font-size:50px">{{ result }}</p>
     {% endif %}
 </div>
-
+<br>
 <footer class="py-3 bg-light">
     <div class="container">
        <p class="text-center" > by Benedict
