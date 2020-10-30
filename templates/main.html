@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- CSS Styling -->
+<style>
+
+body {
+    background-color:powderblue;
+}
+
+.jumbotron {
+    background: url("https://www.marieclaire.com.au/media/62441/breast-cancer.jpg") no-repeat center;
+}
+
+form {
+    margin: auto;
+    width: 50%;
+    background-color: pink;
+    font-family: Helvetica;
+    padding: 10px;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+    font-family: Helvetica;
+}
+</style>
+<!-- Content -->
+<head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Breast Cancer Predictor using 5 Input Metrics</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+<!-- Jumbotron -->
+<header class="jumbotron jumbotron-fluid">
+    <div class="container-fluid text-center"> 
+        <h1 class="display-3" style="font-family: Arial, Helvetica, sans-serif; font-size: 44px; color: black;">BCQuicktool: Simple Breast Cancer Predictor</h1>
+    </div>
+</header>
+    
+<!-- Project description section -->
+<div class="container-fluid" style="font-family: sans-serif;" id="about">
+    <div class="content" style ="text-align: center;">
+        <h2 class="center padding-64" style = " font-size: 20px;"><span class="tag"><strong>ATTENTION: CLINICIANS AND RESEARCHERS</strong></span></h5>
+            <p>Please input the following parameters in the form below. Only put values from cell nuclei imaging. 
+            </p>  
+            <p>Any feedback is welcomed, but will not be implemented in the future.</p>        
+    </div>
+</div>
+    <form method="POST">
+    <fieldset>
+        <legend>Cell Nuclei Attributes:</legend>
+        Texture:
+        <input name="texture_mean" type="number" step="any" required>
+        <br>
+        <br> Perimeter:
+        <input name="perimeter_mean" type="number" step="any" required>
+        <br>
+        <br> Smoothness:
+        <input name="smoothness_mean" type="number" step="0.01" required>
+        <br>
+        <br> Compactness:
+        <input name="compactness_mean" type="number" step="0.01" required>
+        <br>
+        <br> Symmetry:
+        <input name="symmetry_mean" type="number" step="0.01" required>
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+    </form>
+
+<br>
+<div class="result" align="center">
+    {% if result %}
+        {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Type of cancer:
+           <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+
+<footer class="py-3 bg-light">
+    <div class="container">
+       <p class="text-center" > by Benedict
+           Nathaniel
+       </p>
+    </div>
+ </footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
