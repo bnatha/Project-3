@@ -2,6 +2,6 @@ numpy
 pandas
 flask
 sklearn
-
+gunicorn
 
 
